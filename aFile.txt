@@ -1,0 +1,674 @@
+GENCYBER (07/05/16)
+TERMINAL NOTES
+man sl--> HELP MANUAL
+whatis --> will tell you what a command is
+pwd --> shows you absolute address 
+cd --> changes directory you are in, cd Desktop will move you into desktop
+touch fileName.txt --> creates file if file doesn't already exist
+gedit fileName.txt &--> is a text editor, allows you to open and edit files
+	the & at the end essentially sends command to different processor
+cat fileName.txt --> shows contents of folder
+	as opposed to more fileName.txt which does the same, but can only scroll down
+	also less fileName.txt which allows you to scroll up and down
+
+head aFile.txt and tail aFile.txt--> displays the header and footer of file
+
+echo hi >> dFile.txt --> will create dFile.txt containing the word hi, or add hi to pre-existing dFile.txt
+
+tar -cf hello.tar aFile.txt--> creates a tar file by the name of hello.tar, with aFile inside of it
+
+mkdir --> creates directory where you are currently located
+
+cd.. --> changes your location to one directory level up
+	. is where you are
+	.. is one above where sl you are
+
+mv fileName.txt location--> moves file
+
+wc --> command tells you how many lines, words and letters in a given file
+sudo
+command --help --> will help you figure out what that does
+
+cp fileName.txt fDir/ --> copies file into different directory (in this case into fDir)
+rm fileName.txt --> removes file
+rm -r gDir/ --> removes directory
+
+ls -l--> shows files with even more info, like date and author and permissions
+ls -al--> shows all hidden files
+
+sudo apt-get install--> installs app
+
+drwxr-xr-x 3--> permissions, first d stands for directory, dash is 0 (=no permission) and letter 			is 1 (=permission)
+owner(3)/group(3)/public(3)	Note: rwx stands for read, write and execute
+
+Binary looks like this: think about it like adding 1+9=10
+0 =1
+1 =2
+01 =3
+11 =4
+100 =5
+101 =6
+110 =7
+111 =8
+
+exit--> closes terminal
+
+INTRO TO PYTHON
+Spyder IDE (Ideal developing environment) consists of file editor and console.
+#COMMENTING
+Variable= name that stores information (a value), includes strings (words in quotes), integers 			(whole number), booleans (true/false), and floats (decimal)
+	assigned with an equal sign, but order matters, variable name MUST be on left side of = 		and value must be on the right
+Integers= any whole number including negatives, can apply addition/subtraction/division/multiplication
+
+my_age = my_age+time is the same as my_age+=time
+print()
+also x/y will give you 4.0 which is a float, but x//y will give you 4 which is an integer
+
+String= basically any form of text, distinguished by quotation marks, can be indexed, have lengths (number of characters and white spaces between quotation marks)
+	D i d   S o l o   s h  o   o t      f i   r  s  t  ?
+	0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  19  20
+	--> can access specific characters by typing unknown(4) which will give you S in this example
+	--> string_name.find("any phrase", start_index, end_index) will return index if found and -1 if not found
+
+	string1="Hello, world"
+	print(string1[2])
+	has an output of l
+
+	string1.find("wor")
+	has an output of 7, because that is where it is found w/in the string
+	
+	-->print(len(string)) will give you 6, literally the length of the string
+	--> to print integer and string variables in one statement, separate each variable with commas, like so:
+	string1="There are"
+	int1=24
+	string2="laptops in this room and"
+	string3="people"
+	int2=28
+	print(string1, int1, string2, int2, string3) 
+	gives you There are 24 laptops in this room and 28 people
+
+	--> Getting user input? 	
+	studentname = input("What is your name, student?")
+	print ("Hello,", studentname)
+
+	--> What about getting user input with different integer types?
+	age = input ("enter an age") #will give you an error
+	age = int(input ("enter an age")) #will convert string into an integer
+
+% is called mod--> gives remainder, of x/y, written as x%y
+compiling--> computer program reads and checks what you've wrote... picks up syntax errors
+
+GENCYBER (07/06/16)
+To comment in Python, you can use #, or ''' for multiple lined comments '''
+To convert an integer into a string--> str(a), whereas to convert string to integer--> int(a)
+
+Computers communicate in Base 2 ("binary")
+--based on switches, like the flow of electric current, on/off
+--modern switches have millions of tiny switches, measured in nanometers
+--two symbols/bits: 0,1
+vs. Decimal System which is Base 10
+--ten symbols/digits: 0,1,2,3,4,5,6,7,8,9
+vs. Octal (Base 8), or like Base 6
+vs. Hexadecimal(Base 16)
+--convenient because 16 numbers can be represented with 4 bits
+--but we don't have enough digits to represent all 16 of these symbols... only 10 digits
+--solution:use letters too
+--symbols:0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F 
+
+*To convert binary to base 10, multiply the rightmost bit by a power of 2, starting with 2^0, the continuously add the product of the next left bit and the next power of 2.
+To convert base 10 to binary, find the greatest power of 2 that can "fit" inside the number, subtract this from the number, and repeat. If the power of 2 is too large, then write zero. Note that it helps to create a chart.--> EASIER WAY includes divisng number repeatedly by 2, saving remainder and then REVERSING order of remainders
+	i.e. 43%2=1 21%2=1 10%2=0 5%2=1 2%2=0 1%2=1 -->  101011
+Base 10 example: 2,735--> 2x10^3 + 7x10^2 + 3x10^1 + 5x 10^0
+Base 2 example: 1101--> 1x2^3 + 1x2^2 + 0x2^1 + 1x2^0--> 12
+*To convert hex to binary, separate the binary into the four "high order bits" on the left and the four "lower order bits" on the right. Each represents a number between 0 and 15 which we replace by its hex symbol.
+
+PYTHON COMMAND FOR CONVERSION: bin() and hex()
+
+Bits, Bytes and Words:
+A bit is a single binary symbol, 0 or 1.
+A byte is 8 bits.
+A computer word is several bytes. Common word sizes are 32 bit words (4 bytes) and 64 bit words (8 bytes). Word size of computer determines the largest integer that can be represented on it.
+
+Note: Can represent 10^n and 2^n numbers with n digits
+
+There are 10 kinds of people in this world: those who understand binary, and those who don't.
+
+ASCII: used to represent text
+--each character (letter, digit, punctuation mark, space, tab, etc) corresponds to a number
+--originally used 7 bits to represent 128 diff characters
+--capital letters start at decimal 65 with 'A'
+ord()-- given an ASCII character, the function will output the number it is represented by
+chr()--given an number, the function will output the ASCII character it represents
+
+	*Why might this be important? CRYPTOGRAPHY OOH AHH, and also can convert into hexadecimal and binary 
+
+list.append(object)
+
+STOLEN OSCAR PROMPT
+myspace--> soundcloud--> myspace--> okcupid--> instagram--> phone number
+
+Conditional Statements (If, elif and else)
+--if a certain condition is met, then the corresponding action will occur
+--if the condition is not met (false), then the code inside of the conitional is skipped and the rest of the code continues to run
+--if- the first conditional
+  elif- stands for "else if", used after "if"
+  else- the "catch all", has no conditional statement
+--True/false (Boulian) dependent on comparisons, runs only when these relationships are true, like
+  Equality A==B #runmycode
+  Inequality A!=B #runmycode
+  Relativity, like < or > or <= or >=
+-- Way to tell if # is even--> A%2==0
+
+Functions
+--block of code that can be repeatedly used for efficiency-- don't have to write out everything again
+--initiated using parentheses, object w/in parentheses is known as the parameter
+--return refers to giving back a result from the code
+def function_name(parameter1, parameter2):
+	if parameter1>parameter2:
+		print("I don't like this")
+		break #allows you to break from the function without returning to anything
+	else:
+		break
+--What is the difference between = and ==? == is used for Boulivian, like true/false type situation
+
+
+GENCYBER (07/07/16)
+Cybersecurity First Principles
+1. Domain Separation- keeps separate things apart, like keeping different users separate from each other
+
+2. Process Isolation- keeps different programs separate, so Chrome and Microsoft cannot access each others' information/data
+
+3. Resource Encapsulation- keeps resources separate 
+
+4. Least Privilege- users have limited permissions to do things, like read, write and execute permissions (i.e. only police officers can arrest people)
+
+5. Layering- layers of security make it harder to break in, so the network layer, computer layer and hardware layer serve as protections
+
+6. Abstraction- representing code in the most simple way possible (as opposed to in the most complex way possible)
+
+7. Information Hiding- controlling which parts of code can control other parts
+
+8. Modularity- breaking code up into smaller parts, has the ultimate goal of efficiency and easy editing 
+
+9. Simplicity of Design- make things/code as simple as possible	
+
+Intro to Loops
+While loop- loop that will keep on running code until a certain condition is met
+	    stops running after condition is met
+
+
+A library is a collection of functions, which can be imported into your own code for your own usage.--> the random library allows you to use random.randint(a,b)
+
+Note: Typing a function into the console will allow you to see the proper arrangment, such as what type of parameters are required
+	Also EOL stands for "end of the line." Check to make sure all " are ended by ".--> SyntaxError: EOL while scanning string literal "EOL" stands for "end of line". An EOL error means that Python hit the end. of a line while going through a string. This can be because you forgot ending quotes , or because you tried. to make a string extend past one line. Strings enclosed in single or double quotes.
+
+Remeber: for char in string --> will allow you to loop through each character in a string
+len(string) gives you the length of a string
+ASCII table capital/lowercase
+
+CAREER PATHS IN CYBERSECURITY & INTRO TO GRC-- Rebecca Kutzer- Rice
+--growing threats: identity thieves, nation states, terror orgs, organized crime, hacktivists
+  to: finance, retail, tech, health care, gov't, utilities, transportation and manufacturing
+--the "internet of things"-- cars, fridges, phones, airplaneted to Wifi, comes with threat too
+--"fishing" refers to highly targetted attacks, such as stealing passwords all connecrds in order to gain access
+--ransom-ware-- encrypts entire devices until ransom is paid
+--DIDAS attack? Jobs in Governance/Risk/Compliance(bridge) , Legal Requirements
+--CISO- chief information security officer
+--6 mil jobs in cybersecurity by 2019, currently at 1 mil, only 11% of global cybersecurity workforce are women
+--Things to do:
+*read the news
+*volunteer for industry organizations and join student groups (ISACA NY has a St. John's COllege chapter, OWASP for networking, etc.)
+*consider insutry certifications (CISSP exam, become an associate CISSP, and work toward required work experience which is 6 yrs)
+*take classes (Coursera session starts on July 25)
+*PixieHacks (July 9)
+*Do not hack illegally!
+*Kevin Paulson's book
+
+GENCYBER (07/08/16)
+Intro to Cryptography
+-- What is it? The act of securing information, whether it be an image, text or audio clip
+		used during times of war, and also for privacy purposes (corporate or otherwise)
+--Caesar Cipher- method involves shifting all of the letters in your message by a certain number
+		inner ring signifies actuall alphabet, while outher ring is the alphabet that has 		been shifted by say 10
+		BUT THERE ARE ONLY 25 WAYS TO ENCRYPT A MESSAGE USING CAESAR CIPHER, and a 		computer is more than capable of trying all 25 methods in a second
+--Caesar Cipher Pseudo-code:
+1. Name your function, two parameters, string and integer.
+2. Create a string that will contain no characters.
+	emptystring=""
+3. a. Start a for loop that loops through each character in you unencrypted message.number into
+   b. Turn each character into an SCII number using the ord function.
+   c. Save that ASCII number into variable
+   d. Add the shift to the ASCII variable
+   e. Have a conditional statement that will subtract from the ASCII variable if it's greater than the range of letters
+   f. Change ASCII variable to a character using the function chr()
+   g. emptystring+= character_variable
+4. Return the encrypted string
+
+Remember: You can add to strings
+string = ""
+string += "a" --> string= string + "a"
+
+--One Time Pad (The Ultimate Shift Cipher)- the only mathematically unbreakable encryption, it is 	a cryptographic algorithm/formula, encodes using a key and a message
+	even if you tried using "brute force" for every second of your life...still probs wouldn't 	work 
+	1. Plain text: HELLO
+	2. Convert into numbers: 77 4 11 11 14
+	3. Key: J F K L O, and then convert into numbers 9 5 10 11 14
+	4. Cipher text(encoded version of text, add numbers) 16 9 21 22 28, then mod % by 26, which gives you 16 9 21 22 2, which you then convert to letters Q J V W C
+	5. The cipher text is what you send!
+
+Note: a%b=a if a<b
+
+Message=Plaintext
+Key=Key
+Encrypted message=Cipher
+
+GENCYBER (07/11/16)
+New Technology File System (NTFS)
+--Blocks: 
+	data blocks (stores content stored inside file)
+	inode blocks (stores info about file location- physical address, inode #s start @ 5)
+	allocation bit map blocks (stores 0s and 1s, on & off switches that dictate availability of blocks) 
+
+	--> 6 types of blocks
+	Boot 0
+	Super 1
+	Inode Block, Allocation Bit Map 2-5
+	Data Block, Allocation Bit Map 6-8
+	Inode Blocks 9-1883
+	Data blocks 1884-20000
+
+	--> Small Scale Representation
+	Inode #:5    5-4=1, place a 1 in the 1st block (to save space), in 5th block data #s are specified
+	Data Numbers: 8, 10, 11, 14, dictate where the data is located
+
+Zip file--> super compact file, stores big stuff in less space
+pizzaPug.jpeg--> stored as series of 1s and 0s, binary, if you change just one byte in the header you will corrupt the file (used by college students to get extensions on assignments)
+file carving
+Autopsy--> if you delete a file you can get it back SOMETIMES, putting something in the trash is equivalent of the computer forgetting where it is and replacing it with something else
+	actually a program used by the gov't to recover files
+	Case File: puckerburg
+	Host: unknownhost
+
+GENCYBER (07/12/16)
+Image Hashing:
+captchalogue-- take out of inventory
+	vowels=1 and consonants=2 add it all up, then mod by space you have (%)
+collision-- when two different things go in the same box, bad bcuz diff. to differentiate
+	using the scrabble points hash system is better than the basic hash system (in which vowels=1 and consonants=2) because it decreases the chance/occurence of collisions (cat and dog are no longer placed in the same box)
+
+Example:
+in which A=1, B=2, C=3
+NUNCHUCKS--> 14+21+14+3+8+21+3+11+19=114%10 -->4
+
+*Point of a hash is to be unique, an identifier like a social security number.*
+
+https://www.safaribooksonline.com/blog/2013/11/26/image-hashing-with-python/
+
+
+GENCYBER (07/13/16)
+
+Jeremiah Denton-- POW of Vietnam war, spelled out "torture" in morse code through blinking
+
+Steggo (hiding things in plain sigh)
+	--ancient greeks would tattoo messages on their slaves' heads and then send them off
+	--RGB represents colors, can also be represented in hexidecimal 
+	--To encode, is as follows:
+stepic --encode --image-in=name_of_pic.png --data-in=message_to_hide.txt --out=secret.png
+	--To decode, is as follows:
+stepic -i secret.png -d
+
+Part 1: I've got a blank
+Part 2: Space, baby and
+^^^using xxd identify that it is a larger file than the others, or hexedit works too
+Part 3: on this Oscar I'll write
+Part 4: Bing bing bong bing bing bing
+^^^stepic -i the_wall4.png -d
+
+Note: ls -a shows hidden files as well, ones with . before them
+Location--> 51.5014 deg north, 0.1419 deg west--> Buckingham Palace
+
+GENCYBER(07/14/16)
+Networking = Sharing information
+--Rules--> finding devices on the network, making connections, various types with information shared
+--Finding Devices in a Network
+	1. Your device must have an addressing system, capable of uniquely identifying computers and interfaces. MAC Address is the Media Access Control Address, and is also referred to as the physical address of a device. The 1st half of digits in MAC address tells manufacturer, while the last half makes them unique.
+	2. You must belong to a network, which allows you to have access to shared files, devices like printers or scanners, etc. IP address stands for Internet Protocol Address, which is a temporary identifier for each interface and must also be unique among the connected devices on that network (it is changeable, shared with others in network and unique). Can get an IP address statically or dynamically (network server assigns you IP address auto, called DHCP or dynamic host configuration protocol, which is more secure because it is constantly changing).
+	IPv4 is old, but commonly used. 32 bits represented in 4 sections separated by dots. Can  be public or private.
+	IPv6 is new, and slowly being converted to. 128 bits represnted in 8 sections separated by colons. Each section holds a hexadecimal number from 0000 to FFFF.--> Why? Because we ran out of IPv4 addresses.
+
+	To send data, a device must now both the IP and the MAC address of the receiving device. ARP or address resolution protocol is a tool used by devices on the same network to find the address...ARP table tells you all of the devices you've connected to and places IP next to MAC address.
+
+	Fully Qualified Domain Name (FQDN) is human readable.
+	host, yourdomain.top-leveldomain
+	top-leveldomain is like .gov .edu .com .net .org etc.
+ 
+
+ifconfig -a  --> gives MAC address, IPc4, IPv6...
+
+
+--Lan (Local Area Network)= devices connected inside an office, building or small geographic area of an organization for LOCAL sharing
+--Wan (Wide Area Netword)= devices connected across a wide geographic area
+-- What hardware does it take to deliver data?
+	1. Hosts- PCs, servers, network printers, tablets, mobile phones, etc
+	2. LAN central connection devices- Hub, switch, WAP, etc.
+	3. WAN central connection device- router (aka default gateway), only device that can connect 2 networks
+--Digital packets- older forms of comm. like analog telephones send signal across signal direct connect vs. digital comm. instead break up the signal into pieces and send them on different paths, arrive out of order but that is why they are numbered
+
+If data is lost--> multiple copies
+If data arrives in the wrong order--> number data
+If data is intercepted--> encode it using like OTP
+
+Tablet of Stone:
+1. Reliability of Transmission
+2. Security (in case of interception)
+3. Ordering
+4. Sent Receipts (verifying msg sent)
+
+
+--Protocols-- TCP/IP is a set of over 100 protocols, handle diff parts of acket delivery, the protocols are stacked in layers (the ones at the botttom do the most basic tasks and ones at the top do the most specialized tasks)
+	Most protocols are associated with specific port number, which indicates to a computer which application should handle incoming data (ports are like doors, opening to handle a specific type of packet), might be for security purposes!
+	TCP (Transmission COntreol Protocol, connection oreinted, will makes sure the message gets there, sends error messages if there are packets missing-- something called three way handshake, est synchronized source-to-destination connection between two PCs, between sending comp and recieving comp and sending comp again-- SLOWER BTW)-- used for emails, texts, Fb messaging, and even just connecting to a web page 
+					...VERSUS...
+	UDP (User Datagram Protocol, doesn't check to see if the message arrives, connectionless-- typical of streaming video/music, dropping packets that aren't being recieved)--> both handle getting the connection started from host to host and send segments from host to host
+
+	***FOR HELP CHECK OUT WEBSITE: howdns.works/ep1/***
+
+
+1. Comp is set to get its IP config dynamically, so it sends out a DHCP request--> which responds with 
+2. Comp sends request to the DNS server asking it to provide an IP address for the FQDN
+3. Comp creates a package
+4. Pc must have MAC address, but cannot get it from ARP request bc destination IP is not in our network
+5. Default gateway is a router configured to have knowledge of other networks near it
+6. HTTP is a connection oreinted protocol so the google web server and host PC go through a 3 way handshake to negotiate the TCP connection,, then the browser starts to access the html page with lots of packets
+7. Google sends parts of web page as packets and the browser builds those to show on the screen as the Google Home page--> we can see the delivery of the page using a firefox add on called LiveHTTPHeaders
+
+
+Wireshark= network packet anlyzer aka a packet sniffer, captures packets and allows the user to examine all parts of that packet including IP address info, protocols and port and actual data from inside
+
+
+Note: SMTP is email
+FTP is file transport protocol
+
+GENCYBER(07/15/16)
+Databases
+--language to interact with dateabases (/retrieve info) is called SQL, has an English-like form
+   Query Example:
+	SELECT name, id    
+	FROM person
+	WHERE funfact like '%dog%'
+   Which essentially means:
+	SELECT *trait*
+	FROM *group/table*
+	Where *trait* = like *something*
+    Note: the trait doesn't have to be the same both times, in fact it should probabs be different
+--phpMyAdmin interacts with databases, some commands include:
+	SELECT * from candy; --> shows everything in candy
+	UPDATE people SET funfact="I am the professor" WHERE name="Phyllis";
+
+	#add id#, name, password, funfact
+	INSERT INTO people VALUES (76, 'Grace', 'sheep', 'I do not know');
+	INSERT INTO people VALUES (200, 'Khana', 'word', 'hi hi hello');
+
+	#changing existing rows--> UPDATE people SET name="silly" WHERE name="Bob"; 
+
+	#view rows--> SELECT name FROM people WHERE id=4;
+--What is the purpose of database systems? 
+	drawbacks of using file systemd irectly to store data (redundancy and inconsistency), difficulty in accessing data, data isolation, integrity problems
+--Levels of Abstraction
+	Physical level: describes how a record is stored
+	Logical level: describes data stored in database, and relationships among the data, what programmers have to deal with
+	View level: application programs hide details of data types, vies can also hide info for secuirty purposes (i.e. employee salary)
+--Design is difficult, business versus comp sci perspective
+--Data Manipulation Language (DML) is the language for acessing and editing, etc data
+--Tables are stored in table of tables
+--How are passwords stored? Plaintext is bad, so we hash it (one way functions!).
+			    Still hashes can be vulnerable, because hackers can do a dictionary 				attack where they essentially hash common words/passwords to guess 					yours.
+			    Hash browns taste better with salt.--> random characters that prevent 					dictionary attacks, and ensure that your password isn't common
+			    Using only lowercases it would take 26^8 tries to guess the password 					with brute force, so you want more variety, check it out at 					xkcd.com/936/
+			    START USING PASSWORD MANAGER! or don't, its not a big deal for you
+				maybe just log into your web browsers and log out
+
+--When hacking a site, start typing into the search bar, if there is a ? that means it will give you code
+--Single User Mode
+
+
+
+GENCYBER (07/18/16)
+xkcd.com/1416/
+
+
+GENCYBER (07/19/16)
+Cryptography, quipqiup.com solves them for you
+--caesar cipher (scrambling of letters by a constant shift)
+
+	Encrypted-->Zkij te yj.
+	Decrypted-->Shift by 16, Just do it.
+--vigenere cipher ("grid" of message and key, horizontal axis=key, move downwards to find 		encrypted, corresponding vertical axis=decrypted)
+	
+	key: GARY
+	Encrypted-->REVBRE CCKDCC REV
+	Decrypted-->LEEDLE LEEDLE LEE
+	https://mutantsecurity.files.wordpress.com/2011/12/decrypt.png
+
+--substitution cipher
+
+	Encrypted-->SIAA ZQ LKBA. VA ZOA RFPBLUAOAR!
+	Decrypted-->Flee at once. We are discovered!
+
+Mad Mod Math
+--crypto relies on modular arithmetic, bcuz factoring is hard
+--review:
+	34%5=4
+	(749887987943*8)%4=0
+	3^96 %97=1
+	(2^3435 %7)^4543 %7 == (2^4543 %7)^3435 %7 -->True
+
+RSA, used to encrypted #s
+--choose 2 prime #s p and q (supposed to be pretty big)
+--set n as p*q
+--create t=(p-1)*(q-1)
+--choose an e where e is not a factor of t
+--find a number d where e*d % n = 1
+--n and e are the public keys
+--d is the private k
+--m is your message
+--c is the encrypted message
+
+	Encryption--> c=m^e (mod n)
+	Decryption--> c^d = (m^e)^d = m (mod n)
+
+Diffie-Hellman
+--2 ppl A and B choose a modulus p and base g
+--A chooses a number a and sends B: A1=g^a % p
+--B chooses a number b and sends A: B1=g^b %p
+--A takes B's message, B1^a %p
+	this is the secret number
+--B takes A's message, A1^b %p
+	this is the same secret number
+
+QR Codes
+--barcode
+--made by a car factory worker to keep track of cars
+--fast readability, greater storage
+--could endure damage due to redundancy
+
+Ngiti
+
+base64, binary to text encoding
+
+DTCC-reduces risk in the financial industry, securing today and shaping tomorrow
+--impact of cyber security attack on DTCC would have economic implications for the entire world
+--systemically important financial market utility (SIFMU), recieve a lot of money and attention from the government
+--Phish Detection
+	What to look for: the link to click on goes somewhere else other than sender(hovering link doesn't match), content tries to play on your emotions(scare you into clicking), asks for money, You've won...!, words are misspelled and/or bad grammar, something just doesn't seem right
+--Ransom ware
+--SONY attack
+--Antimalware reacting to new/unknown malware
+--Smartphone Security:
+	set a lock code, enable 'do not track' in mobile web browser, block your phone number when necessary, avoid answering spam calls, use a recovery app to find a lost of stolen device, add owner contact information to your device stay physically secure
+--Enterprise Security:
+	mobile devices need antimalware software, secure mobile communications, strong authentication. control third party software, create separate/secured mobile gateways, peform reguar mboile security audits and penetration testing
+--What should you do? Turn it off, computers not running so malware can't run
+	Keep software on your device up to date, don't download apps from third party marketplaces, be careful where you click, download a mobile security app to protect yourself
+--Bangladesh Central Bank Cyber Attack- biggest cyber bank heist
+$81 million from accounts at BCB were stolen, through complext attack involving stealing legitimate credentials (user ID and passowrd) for SWIFT (a technology that is a closed computer network for communication between financial institutions around the world)
+	Wire transfer includes 3 checks for legitmacy, from sender's bank, federal reserve and recepient's bank
+	Missing Cyber Security COntrols-- no firewalls(act as barrier to keep destructive elements out of a network), porr quality routers(collect minimal to no info about network traffic), lack of segregation of network(would've contained issues), lack of/inefficient threat monitoring program
+	Where are they now? no one has been arrested, money trail ends at casino in Phillipines, US Attorney's Office in Manhattan has opeend an investigation of the cyber heist
+
+--Cyber Security Carreer Path (Denver Martin)
+	network security, secuirty architecture, exec management, project management, engineering, cyber foresnsics, application development, software development, etc. salaries in the $110,000 range
+	most community colleges offer certificates in cyber secuirty, require 2 or more semesters, provide basic foundation in order to sit for security + certification exam(basic), CCNA(admin), CISSP(security), OSCP(cyber hunter), CEH (certified ethical hacker, helps companies fix holes)
+	WHAT DO EMPLOYERS LOOK FOR?	
+	1.Experience
+	2.Education (long-term degree, and/or short-term certifications)
+	pick focus and become an expert, build solid foundation in networking, systems adminsitration, database management, etc., have experience in the military or law enforcement(helpful when looking for gov't employment, or perhaps to gain clearance), read up on IT secuirty topics, do your own background checks in adance of seeking employment to know what will be reported about you, be willing to work in a fast-paced environment with some unpredictability in job hours
+	Potential Universities: Rutgers, NJIT, FDU, Stevens Institute, etc.
+
+OWASP
+
+
+GENCYBER (07/20/16)
+Heat sinkers keep processors(CPUs) cool.
+Processors (CPUs) do like everything, brain of computer.
+RAM Moduels is the memory of the computer while its on, temporarily, so that its faster.
+Motherboard is the organizer of the computer, like connecting the parts of the body.
+Power Supply supplies power, and is cooled down by the system Fan.
+Optical Drive is for CDs.
+
+IM A GIRL IN A WORLD IN WHICH MY ONLY JOB IS TO MARRY RICH MY FATHER HAS NO SON SO IM THE ONE WHO HAS TO SOCIAL CLIMB THE ONE SO IM THE OLDEST AND THE WITTIEST AND THE GOSSIP IN NEW YORK CITY IS INSIDIOUS AND ALEXANDER IS PENNILESS BUT THAT DOESNT MEAN I WANT HIM ANY LESS
+HES AFTER ME CAUSE IM A SCHUYLER SISTER WHO ELEVATES HIS STATUS ID HAVE TO BE NAIVE TO SET THAT ASIDE MAYBE THAT IS WHY I INTRODUCE TO ELIZA NOW THATS HIS BRIDE NICE GOING ANGELICA HE WAS RIGHT YOULL NEVER BE SATISFIED 
+I KNOW MY SISTER LIKE I KNOW MY OWN MIND YOU WILL NEVER FIND ANYONE AS TRUSTING OR AS KIND IF I TELL HER THAT I LOVE HIM 
+
+these are wise words enterprising men quote em dont act surprised you guys cause i wrote em 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
